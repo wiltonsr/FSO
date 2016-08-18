@@ -1,13 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "io.h"
 
 
 int main(void){
-    foo();
-    printf("Hello");
+    get_triangle();
     return 0;
-}
-
-int foo(int bar){
-    return 1;
 }
