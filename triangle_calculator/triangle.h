@@ -2,14 +2,14 @@
 #define TRIANGLE_H
 
 // A point with coordinates X and Y
-typedef struct point {
+typedef struct Point {
     int x;
     int y;
 } Point;
 
 // Triangle with tree points
-typedef struct triangle{
-    Point points[3];
+typedef struct Triangle{
+    Point *point[3];
 } Triangle;
 
 #endif
