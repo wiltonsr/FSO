@@ -26,3 +26,20 @@ Triangle *get_triangle(){
 
     return triangle;
 }
+
+void print_len_sides(double len){
+    printf("The len sides is %lf\n", len);
+}
+
+void print_perimeter(double perimeter){
+    printf("The perimeter is %lf\n", perimeter);
+}
+
+void print_area(double area){
+    printf("The area is %lf\n", area);
+}
+
+void print_error(){
+    printf("Program error. Exiting...");
+    exit(-1);
+}
