@@ -3,6 +3,15 @@
 #include "triangle.h"
 
 Point *get_point(int point_number);
+
 Triangle *get_triangle();
+
+void print_len_sides(double len);
+
+void print_perimeter(double perimeter);
+
+void print_area(double area);
+
+void print_error();
 
 #endif
