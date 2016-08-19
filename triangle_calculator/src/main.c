@@ -9,8 +9,16 @@ int main(void){
     double *sides = calculate_sides(triangle);
     double perimeter = calculate_perimeter(triangle);
 
-    print_area(area);
-    print_len_sides(sides);
-    print_perimeter(perimeter);
+    if(area >= 0 || perimeter >= 0){
+        print_area(area);
+        print_len_sides(sides);
+        print_perimeter(perimeter);
+    }
+    else
+        print_error();
+
+    free_memory(triangle);
+    free_memory(sides);
+
     return 0;
 }
