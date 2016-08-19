@@ -1,12 +1,12 @@
 SRC_DIR = src/
 OBJ_DIR = obj/
 BIN_DIR = bin/
-SOURCE = $(SRC_DIR)main.c
+SOURCE = $(SRC_DIR)main.c $(SRC_DIR)io.c
 PROGRAM = sorting_integers
 EXECUTABLE = run
 MKDIR_P = mkdir -p
 MOVE_FILE = mv
-LINK_FORCE = ln -n
+LINK_FORCE = ln -fn
 CFLAGS = -std=c11
 CC = gcc
 
@@ -16,6 +16,7 @@ all: directories $(PROGRAM)
 
 $(PROGRAM): $(SOURCE)
 	$(CC) -c $(SRC_DIR)main.c -o $(OBJ_DIR)main.o
+	$(CC) -c $(SRC_DIR)io.c -o $(OBJ_DIR)io.o
 	$(CC) $(OBJ_DIR)* -o $(BIN_DIR)$(PROGRAM) $(CFLAGS)
 	$(LINK_FORCE) $(BIN_DIR)$(PROGRAM) $(EXECUTABLE)
 
@@ -25,6 +26,7 @@ directories:
 
 clean:
 	rm -f $(PROGRAM)
+	rm -f $(EXECUTABLE)
 	rm -rf $(OBJ_DIR)
 	rm -rf $(BIN_DIR)
 	rm -rf *.o
