@@ -29,16 +29,16 @@ Triangle *get_triangle(){
 
 void print_len_sides(double *sides){
     for (int i = 0; i < 3; i++) {
-        printf("The len of the side %d is %lf\n", i, sides[i]);
+        printf("The len of the side %d is %.2lf\n", i, sides[i]);
     }
 }
 
 void print_perimeter(double perimeter){
-    printf("The perimeter is %lf\n", perimeter);
+    printf("The perimeter is %.2lf\n", perimeter);
 }
 
 void print_area(double area){
-    printf("The area is %lf\n", area);
+    printf("The area is %.2lf\n", area);
 }
 
 void print_error(){
