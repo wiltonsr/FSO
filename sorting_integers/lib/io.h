@@ -10,6 +10,8 @@ void print_error(char *menssage);
 
 void print_man();
 
+int validate_argv(int argc, char *argv[]);
+
 extern char *MISSING_ARG;
 
 #endif

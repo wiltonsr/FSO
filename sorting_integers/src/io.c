@@ -37,3 +37,9 @@ void print_error(char *message){
     printf("%s\n\n", message);
     print_man();
 }
+
+int validate_argv(int argc, char *argv[]){
+    for (i = 0; i < argc; i++) {
+        // Adding verification
+    }
+}
