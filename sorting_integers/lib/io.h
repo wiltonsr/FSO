@@ -10,4 +10,6 @@ void print_error(char *menssage);
 
 void print_man();
 
+extern char *MISSING_ARG;
+
 #endif

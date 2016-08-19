@@ -8,9 +8,8 @@ int main(int argc, char *argv[]){
         /* Implemente here */
     }
     else{
-        if(!argc_is_valid){
-            print_error("An argument is missing");
-        }
+        if(!argc_is_valid)
+            print_error(MISSING_ARG);
     }
     return 0;
 }

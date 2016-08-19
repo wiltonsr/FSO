@@ -3,6 +3,8 @@
 #include "../lib/io.h"
 #include "../lib/sort_list.h"
 
+char *MISSING_ARG = "An arg is missing";
+
 Sort_list get_list(int argc, int *argv[]){
 }
 
@@ -31,7 +33,7 @@ void print_man(){
 }
 
 void print_error(char *message){
-    printf("Ocurred an error...\n");
+    printf("ERROR: ");
     printf("%s\n\n", message);
     print_man();
 }
