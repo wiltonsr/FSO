@@ -8,4 +8,6 @@ int validate_argc(int argc);
 
 void print_error(char *menssage);
 
+void print_man();
+
 #endif

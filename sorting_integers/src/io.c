@@ -15,7 +15,21 @@ int validate_argc(int argc){
     return is_valid;
 }
 
+void print_man(){
+    printf("Use: ./run [Option] ...   (1º form)\n");
+    printf(" or: ./run ...            (2º form)\n");
+    printf("In 1st form, put the option and the follow itengers\n");
+    printf("In 2nd form, put just the follow itengers and they will sort ");
+    printf("in crescent order\n");
+    printf("\n");
+    printf("The all option be:\n");
+    printf("\n");
+    printf("\t-d, \t\tsort in crescent order\n");
+    printf("\t-r, \t\tsort in decreasing order\n");
+}
+
 void print_error(char *message){
     printf("Ocurred an error...\n");
     printf("%s\n", message);
+    print_man();
 }
