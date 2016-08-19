@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <math.h>
 #include "triangle.h"
 #include "operations.h"
 
@@ -21,4 +22,11 @@ double calculate_sides(Triangle *triangle){
 
 double calculate_perimeter(Triangle *triangle){
     return 0.0;
+}
+
+double calculate_distance(Point *a, Point *b){
+    double distance = 0.0;
+
+    distance = sqrt(pow(a->x - b->x, 2) + pow(a->y - b->y, 2));
+    return distance;
 }
