@@ -1,5 +1,9 @@
-#ifndef IO_H
-#define IO_H
+#ifndef SORT_LIST_H
+#define SORT_LIST_H
 
-// Adding headers
+typedef Sort_list{
+    int *int_list;
+    char order;
+} Sort_list;
+
 #endif
