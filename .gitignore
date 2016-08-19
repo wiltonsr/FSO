@@ -29,6 +29,7 @@ obj/
 *.x86_64
 *.hex
 bin/
+run
 
 # Debug files
 *.dSYM/

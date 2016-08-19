@@ -18,5 +18,5 @@ and the bin will be created in the folder bin. See the follow example:
 ```sh
 cd triangle_calculator/
 make
-./bin/triangle_calculator
+./run
 ```
