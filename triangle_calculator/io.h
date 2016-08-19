@@ -6,7 +6,7 @@ Point *get_point(int point_number);
 
 Triangle *get_triangle();
 
-void print_len_sides(double len);
+void print_len_sides(double *sides);
 
 void print_perimeter(double perimeter);
 

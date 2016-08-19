@@ -27,8 +27,10 @@ Triangle *get_triangle(){
     return triangle;
 }
 
-void print_len_sides(double len){
-    printf("The len sides is %lf\n", len);
+void print_len_sides(double *sides){
+    for (int i = 0; i < 3; i++) {
+        printf("The len of the side %d is %lf\n", i, sides[i]);
+    }
 }
 
 void print_perimeter(double perimeter){
