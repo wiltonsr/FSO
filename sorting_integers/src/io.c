@@ -1,9 +1,15 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include "../lib/io.h"
 #include "../lib/sort_list.h"
 
-char *MISSING_ARG = "An arg is missing";
+const char *MISSING_ARG = "An arg is missing";
+const int EMPTY_ARG = 0;
+const int CRESCENT_ARG = 1;
+const int DECREASIN_ARG = 2;
+const int HELP_ARG = 3;
+const int ERROR_ARG = 4;
 
 Sort_list get_list(int argc, int *argv[]){
 }
@@ -41,6 +47,6 @@ void print_error(char *message){
 
 int validate_argv(int argc, char *argv[]){
     for (int i = 0; i < argc; i++) {
-        // Adding verification
+        /* if(strcmp() == 0) */
     }
 }

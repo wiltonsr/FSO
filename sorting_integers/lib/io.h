@@ -12,6 +12,11 @@ void print_man();
 
 int validate_argv(int argc, char *argv[]);
 
-extern char *MISSING_ARG;
+extern const char *MISSING_ARG;
+extern const int EMPTY_ARG;
+extern const int CRESCENT_ARG;
+extern const int DECREASIN_ARG;
+extern const int HELP_ARG;
+extern const int ERROR_ARG;
 
 #endif
