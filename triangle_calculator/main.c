@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "io.h"
+#include "triangle.h"
 
 
 int main(void){
-    get_triangle();
+    Triangle *triangle = get_triangle();
     return 0;
 }
