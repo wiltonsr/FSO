@@ -30,7 +30,13 @@ double *calculate_sides(Triangle *triangle){
 }
 
 double calculate_perimeter(Triangle *triangle){
-    return 0.0;
+    double *sides = calculate_sides(triangle);
+
+    double perimeter = 0.0;
+    for (int i = 0; i < 3; i++) {
+        perimeter += sides[i];
+    }
+    return perimeter;
 }
 
 double calculate_distance(Point *a, Point *b){
