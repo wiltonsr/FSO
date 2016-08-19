@@ -26,8 +26,9 @@ void print_man(){
     printf("\n");
     printf("The all option be:\n");
     printf("\n");
-    printf("\t-d, \t\tsort in crescent order\n");
-    printf("\t-r, \t\tsort in decreasing order\n");
+    printf("\t-d, \t\t\tsort in crescent order\n");
+    printf("\t-r, \t\t\tsort in decreasing order\n");
+    printf("\t-h, --help \t\tshow this help\n");
     printf("Thank you to use our program. Contact us from email: ");
     printf("tiago@sof2u.com\n");
 }
@@ -39,7 +40,7 @@ void print_error(char *message){
 }
 
 int validate_argv(int argc, char *argv[]){
-    for (i = 0; i < argc; i++) {
+    for (int i = 0; i < argc; i++) {
         // Adding verification
     }
 }
