@@ -7,8 +7,10 @@ double calculate_area(Triangle *triangle){
     Point *b = triangle->point[1];
     Point *c = triangle->point[2];
     double area = 0.0;
+    double denominator = 0.0;
 
-    area = (a->x * (b->y - c->y) + b->x * (c->y - a->y) + c->x * (a->y - b->y))/2;
+    denominator = a->x * (b->y - c->y) + b->x * (c->y - a->y) + c->x * (a->y - b->y);
+    area = (double)(abs(denominator))/2;
 
     return area;
 }
