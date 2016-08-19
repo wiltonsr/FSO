@@ -3,7 +3,7 @@
 
 double calculate_area(Triangle *triangle);
 
-double calculate_sides(Triangle *triangle);
+double *calculate_sides(Triangle *triangle);
 
 double calculate_perimeter(Triangle *triangle);
 

@@ -16,8 +16,17 @@ double calculate_area(Triangle *triangle){
     return area;
 }
 
-double calculate_sides(Triangle *triangle){
-    return 0.0;
+double *calculate_sides(Triangle *triangle){
+    Point *a = triangle->point[0];
+    Point *b = triangle->point[1];
+    Point *c = triangle->point[2];
+
+    double *sides = malloc(sizeof(double));
+    sides[0]= calculate_distance(a, b);
+    sides[1] = calculate_distance(b, c);
+    sides[2] = calculate_distance(a, c);
+
+    return sides;
 }
 
 double calculate_perimeter(Triangle *triangle){
