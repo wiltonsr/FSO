@@ -26,10 +26,12 @@ void print_man(){
     printf("\n");
     printf("\t-d, \t\tsort in crescent order\n");
     printf("\t-r, \t\tsort in decreasing order\n");
+    printf("Thank you to use our program. Contact us from email: ");
+    printf("tiago@sof2u.com\n");
 }
 
 void print_error(char *message){
     printf("Ocurred an error...\n");
-    printf("%s\n", message);
+    printf("%s\n\n", message);
     print_man();
 }

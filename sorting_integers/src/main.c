@@ -8,8 +8,9 @@ int main(int argc, char *argv[]){
         /* Implemente here */
     }
     else{
-        char *message = "ASDF";
-        print_error(message);
+        if(!argc_is_valid){
+            print_error("An argument is missing");
+        }
     }
     return 0;
 }
