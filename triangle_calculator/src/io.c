@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "io.h"
-#include "triangle.h"
+#include "../lib/io.h"
+#include "../lib/triangle.h"
 
 Point *get_point(int point_number){
     Point *point = malloc(sizeof(Point));
