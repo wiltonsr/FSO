@@ -43,5 +43,4 @@ void print_area(double area){
 
 void print_error(){
     printf("Program error. Exiting...");
-    exit(-1);
 }

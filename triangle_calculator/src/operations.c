@@ -45,3 +45,7 @@ double calculate_distance(Point *a, Point *b){
     distance = sqrt(pow(a->x - b->x, 2) + pow(a->y - b->y, 2));
     return distance;
 }
+
+void free_memory(void *variable){
+    free(variable);
+}

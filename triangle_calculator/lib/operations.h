@@ -9,4 +9,6 @@ double calculate_perimeter(Triangle *triangle);
 
 double calculate_distance(Point *a, Point *b);
 
+void free_memory(void *variable);
+
 #endif

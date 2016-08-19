@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include "../lib/io.h"
 #include "../lib/triangle.h"
 #include "../lib/operations.h"
