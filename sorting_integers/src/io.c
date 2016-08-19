@@ -14,3 +14,8 @@ int validate_argc(int argc){
 
     return is_valid;
 }
+
+void print_error(char *message){
+    printf("Ocurred an error...\n");
+    printf("%s\n", message);
+}
