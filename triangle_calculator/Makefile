@@ -8,7 +8,7 @@ all: $(PROGRAM)
 $(PROGRAM): $(SOURCE)
 	$(CC) -c main.c -o main.o
 	$(CC) -c io.c -o io.o $(CFLAGS)
-	$(CC) -c operations.c -o operations.o
+	$(CC) -c operations.c -o operations.o $(CFLAGS)
 	$(CC) main.o io.o operations.o -o $(PROGRAM) $(CFLAGS)
 
 clean:
