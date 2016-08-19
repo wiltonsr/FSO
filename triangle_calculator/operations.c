@@ -13,10 +13,10 @@ double calculate_area(Triangle *triangle){
     return area;
 }
 
-double calculate_sides(Triangle triangle){
+double calculate_sides(Triangle *triangle){
     return 0.0;
 }
 
-double calculate_perimeter(Triangle triangle){
+double calculate_perimeter(Triangle *triangle){
     return 0.0;
 }
