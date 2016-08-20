@@ -10,6 +10,8 @@ void print_error(const char *menssage);
 
 void print_man();
 
+int check_argc_argv(int argc, int flag);
+
 int validate_argv(int argc, char *argv[]);
 
 extern const char *MISSING_ARG;

@@ -45,19 +45,33 @@ void print_error(const char *message){
     print_man();
 }
 
+int check_argc_argv(int argc, int flag){
+    if(flag == HELP_ARG)
+        /* Returns an error if have the flag -h or --help */
+        return ERROR_ARG;
+    else{
+        if(argc <= 2)
+            /* Returns an error if have a flag -d or -r and not have numbers */
+            return ERROR_ARG;
+    }
+
+    /* Returns the flag arg if everything is correct */
+    return flag;
+}
+
 int validate_argv(int argc, char *argv[]){
     int validate_response = 0;
 
     /* Interate in all arguments */
     for (int i = 1; i < argc; i++) {
         if(strcmp(argv[i], "-h") == 0)
-            validate_response = HELP_ARG;
+            validate_response = check_argc_argv(argc, HELP_ARG);
         else if(strcmp(argv[i], "--help") == 0)
-            validate_response = HELP_ARG;
+            validate_response = check_argc_argv(argc, HELP_ARG);
         else if(strcmp(argv[i], "-d") == 0)
-            validate_response = CRESCENT_ARG;
+            validate_response = check_argc_argv(argc, CRESCENT_ARG);
         else if(strcmp(argv[i], "-r") == 0)
-            validate_response = DECREASIN_ARG;
+            validate_response = check_argc_argv(argc, DECREASIN_ARG);
 
         if (validate_response)
             return validate_response;
