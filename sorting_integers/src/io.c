@@ -5,6 +5,7 @@
 #include "../lib/sort_list.h"
 
 const char *MISSING_ARG = "An arg is missing";
+const char *MISSING_INTEGER = "Put some integers to sort";
 const int EMPTY_ARG = 0;
 const int CRESCENT_ARG = 1;
 const int DECREASIN_ARG = 2;
@@ -48,7 +49,7 @@ void print_error(const char *message){
 int check_argc_argv(int argc, int flag){
     if(flag == HELP_ARG)
         /* Returns an error if have the flag -h or --help */
-        return ERROR_ARG;
+        return HELP_ARG;
     else{
         if(argc <= 2)
             /* Returns an error if have a flag -d or -r and not have numbers */
