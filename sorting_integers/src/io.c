@@ -39,14 +39,29 @@ void print_man(){
     printf("tiago@sof2u.com\n");
 }
 
-void print_error(char *message){
+void print_error(const char *message){
     printf("ERROR: ");
     printf("%s\n\n", message);
     print_man();
 }
 
 int validate_argv(int argc, char *argv[]){
-    for (int i = 0; i < argc; i++) {
-        /* if(strcmp() == 0) */
+    int validate_response = 0;
+
+    /* Interate in all arguments */
+    for (int i = 1; i < argc; i++) {
+        if(strcmp(argv[i], "-h") == 0)
+            validate_response = HELP_ARG;
+        else if(strcmp(argv[i], "--help") == 0)
+            validate_response = HELP_ARG;
+        else if(strcmp(argv[i], "-d") == 0)
+            validate_response = CRESCENT_ARG;
+        else if(strcmp(argv[i], "-r") == 0)
+            validate_response = DECREASIN_ARG;
+
+        if (validate_response)
+            return validate_response;
     }
+
+    return validate_response;
 }

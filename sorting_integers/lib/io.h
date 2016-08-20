@@ -6,7 +6,7 @@ Sort_list get_list(int argc, int *argv[]);
 
 int validate_argc(int argc);
 
-void print_error(char *menssage);
+void print_error(const char *menssage);
 
 void print_man();
 
