@@ -18,6 +18,12 @@ int *parser_to_int(const int argv_len, const int argc, char *argv[]);
 // Count a number of null in a array
 int count_null(const int len, char *argv[]);
 
+// Create a node of sort list
+Sortlist *create_sort_list(
+        const int len,
+        const int flag,
+        const int *sort_list
+        );
 // Remove a string in a determinate position of the array
 char **remove_string_position(
         const int position_flag,
