@@ -1,6 +1,5 @@
 /* Core of the sort program, with array manipulation, etc */
 #include "../lib/core.h"
-#include <string.h>
 
 Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
     Sortlist *sort_list;
@@ -10,12 +9,17 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
         position_flag = find_flag(flag, argc, argv);
 
         if(position_flag){
+            argv = remove_flag(position_flag, argc, argv);
         }
         else
             /* Returns null if the flag is unknow */
             sort_list = NULL;
     }
     return sort_list;
+}
+
+char **remove_flag(const int position_flag, const int argc, char *argv[]){
+    return argv;
 }
 
 int find_flag(const int flag, const int argc, char *argv[]){
