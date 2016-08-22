@@ -26,6 +26,15 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
 }
 
 int *parser_to_int(const int argc, char *argv[]){
+    int *list_int = malloc(argc * sizeof(int));
+
+    for (int i = 0; i < argc; i++) {
+        if(argv[i] != NULL){
+            list_int[i] = atoi(argv[i]);
+        }
+    }
+
+    return list_int;
 }
 
 char **remove_string_position(
@@ -37,7 +46,7 @@ char **remove_string_position(
     /* be removed */
 
     for (int i = 0; i < argc; i++) {
-        if(i != position_flag)
+        if(i == position_flag)
             argv[i] = NULL;
     }
     return argv;
@@ -48,11 +57,11 @@ int find_flag(const int flag, const int argc, char *argv[]){
 
     for (int i = 0; i < argc; i++) {
         if(flag == CRESCENT_ARG){
-            if (strcmp(argv[i], "-d"))
+            if (strcmp(argv[i], "-d") == 0)
                 position_flag = i;
         }
         else if(flag ==  DECREASIN_ARG){
-            if (strcmp(argv[i], "-r"))
+            if (strcmp(argv[i], "-r") == 0)
                 position_flag = i;
         }
     }
