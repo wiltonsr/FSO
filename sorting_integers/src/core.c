@@ -21,24 +21,36 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
 
     int *sort_list_int;
     sort_list_int = parser_to_int(argc, argv);
+    int len = sizeof(&sort_list_int)/sizeof(int);
+    printf("%d\n", len);
+    printf("%d\n", sort_list_int[2]);
 
     return sort_list;
 }
 
 int *parser_to_int(const int argc, char *argv[]){
-    int *list_int = malloc(argc * sizeof(int));
+    int argv_len = argc - count_null(argc, argv);
+    int *list_int = malloc(argv_len* sizeof(int));
 
+    int int_array_position = 0;
     for (int i = 0; i < argc; i++) {
         if(argv[i] != NULL){
-            list_int[i] = atoi(argv[i]);
+            list_int[int_array_position] = atoi(argv[i]);
+            int_array_position++;
         }
     }
 
     return list_int;
 }
 
-int count_null(int len, void *array){
-    return 0;
+int count_null(const int len, char *argv[]){
+    int nulls = 0;
+
+    for (int i = 0; i < len; i++) {
+        if(argv[i] == NULL)
+            nulls++;
+    }
+    return nulls;
 }
 
 char **remove_string_position(
