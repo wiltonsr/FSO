@@ -1,7 +1,7 @@
 SRC_DIR = src/
 OBJ_DIR = obj/
 BIN_DIR = bin/
-SOURCE = $(SRC_DIR)main.c $(SRC_DIR)io.c $(SRC_DIR)core.c
+SOURCE = $(SRC_DIR)main.c $(SRC_DIR)io.c $(SRC_DIR)core.c $(SRC_DIR)sort.c
 PROGRAM = sorting_integers
 EXECUTABLE = run
 MKDIR_P = mkdir -p
@@ -18,6 +18,7 @@ $(PROGRAM): $(SOURCE)
 	$(CC) -c $(SRC_DIR)main.c -o $(OBJ_DIR)main.o
 	$(CC) -c $(SRC_DIR)io.c -o $(OBJ_DIR)io.o $(CFLAGS)
 	$(CC) -c $(SRC_DIR)core.c -o $(OBJ_DIR)core.o $(CFLAGS)
+	$(CC) -c $(SRC_DIR)sort.c -o $(OBJ_DIR)sort.o $(CFLAGS)
 	$(CC) $(OBJ_DIR)* -o $(BIN_DIR)$(PROGRAM) $(CFLAGS)
 	$(LINK_FORCE) $(BIN_DIR)$(PROGRAM) $(EXECUTABLE)
 

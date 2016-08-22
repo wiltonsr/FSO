@@ -41,7 +41,7 @@ Sortlist *create_sort_list(
 
     /* Order of the sort can be the flag */
     sort_list->order = flag;
-    sort_list->len = len;
+    sort_list->list_len = len;
 
     return sort_list;
 }
