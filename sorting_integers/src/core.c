@@ -3,11 +3,17 @@
 #include <string.h>
 
 Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
-    Sortlist *sort_list = malloc(sizeof(Sortlist));
+    Sortlist *sort_list;
     int position_flag = 0;
 
     if(flag){
         position_flag = find_flag(flag, argc, argv);
+
+        if(position_flag){
+        }
+        else
+            /* Returns null if the flag is unknow */
+            sort_list = NULL;
     }
     return sort_list;
 }

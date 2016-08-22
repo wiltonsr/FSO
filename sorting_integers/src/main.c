@@ -16,6 +16,12 @@ int main(int argc, char *argv[]){
 
     if(arg_is_valid){
         Sortlist *sort_list = get_sort_list(argv_is_valid, argc, argv);
+        if(sort_list != NULL){
+            /* Adding logic */
+        }
+        else {
+            print_error(MISSING_ARG);
+        }
     }
     else{
         if(!argc_is_valid)
