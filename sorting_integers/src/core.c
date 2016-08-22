@@ -9,7 +9,7 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
         position_flag = find_flag(flag, argc, argv);
 
         if(position_flag){
-            argv = remove_flag(position_flag, argc, argv);
+            argv = remove_string_position(position_flag, argc, argv);
         }
         else
             /* Returns null if the flag is unknow */
@@ -19,7 +19,13 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
     /* It will remove the first arg, the name of the program */
     remove_string_position(0, argc, argv);
 
+    int *sort_list_int;
+    sort_list_int = parser_to_int(argc, argv);
+
     return sort_list;
+}
+
+int *parser_to_int(const int argc, char *argv[]){
 }
 
 char **remove_string_position(
