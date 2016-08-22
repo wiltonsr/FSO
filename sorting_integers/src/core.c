@@ -37,6 +37,10 @@ int *parser_to_int(const int argc, char *argv[]){
     return list_int;
 }
 
+int count_null(int len, void *array){
+    return 0;
+}
+
 char **remove_string_position(
         const int position_flag,
         const int argc,
