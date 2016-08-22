@@ -3,7 +3,7 @@
 #include "../lib/core.h"
 #include "../lib/io.h"
 
-Sortlist *get_sort_list(const int TYPE, int argc, int *argv[]){
+Sortlist *get_sort_list(const int TYPE, int argc, char *argv[]){
     Sortlist *sort_list = (Sortlist *)malloc(sizeof(Sortlist));
     return sort_list;
 }

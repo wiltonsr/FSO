@@ -1,6 +1,7 @@
 #define _GNU_SOURCE
 #include "../lib/io.h"
 #include "../lib/sort_list.h"
+#include "../lib/core.h"
 #include <stdlib.h>
 
 int main(int argc, char *argv[]){
