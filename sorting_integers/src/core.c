@@ -19,6 +19,13 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
 }
 
 char **remove_flag(const int position_flag, const int argc, char *argv[]){
+    /* Create an array with argv len less one, from the flag which will */
+    /* be removed */
+
+    for (int i = 0; i < argc; i++) {
+        if(i != position_flag)
+            argv[i] = NULL;
+    }
     return argv;
 }
 
