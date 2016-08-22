@@ -1,5 +1,7 @@
 #define _GNU_SOURCE
 #include "../lib/io.h"
+#include "../lib/sort_list.h"
+#include <stdlib.h>
 
 int main(int argc, char *argv[]){
 
@@ -7,12 +9,12 @@ int main(int argc, char *argv[]){
     int argv_is_valid = validate_argv(argc, argv);
     int arg_is_valid = (
             argc_is_valid &&
-            argv_is_valid != ERROR_ARG
-            && argv_is_valid != HELP_ARG
-        );
+            argv_is_valid != ERROR_ARG &&
+            argv_is_valid != HELP_ARG
+            );
 
     if(arg_is_valid){
-        /* Implemente here */
+        Sortlist *sort_list = get_sort_list(argv_is_valid, argc, argv);
     }
     else{
         if(!argc_is_valid)

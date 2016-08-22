@@ -1,9 +1,9 @@
 #ifndef SORT_LIST_H
 #define SORT_LIST_H
 
-typedef struct Sort_list{
+typedef struct Sortlist{
     int *int_list;
     char order;
-} Sort_list;
+} Sortlist;
 
 #endif

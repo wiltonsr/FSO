@@ -1,8 +1,8 @@
+/* IO manipulation of the software */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "../lib/io.h"
-#include "../lib/sort_list.h"
 
 const char *MISSING_ARG = "An arg is missing";
 const char *MISSING_INTEGER = "Put some integers to sort";
@@ -11,9 +11,6 @@ const int CRESCENT_ARG = 1;
 const int DECREASIN_ARG = 2;
 const int HELP_ARG = 3;
 const int ERROR_ARG = 4;
-
-Sort_list get_list(int argc, int *argv[]){
-}
 
 int validate_argc(int argc){
     int is_valid = 0;
