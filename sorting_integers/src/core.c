@@ -34,6 +34,14 @@ Sortlist *create_sort_list(
         ){
 
     Sortlist *sort_list = malloc(sizeof(Sortlist));
+    sort_list->int_list = malloc(len * sizeof(int));
+    for (int i = 0; i < len; i++) {
+        sort_list->int_list[i] = sort_list_int[i];
+    }
+
+    /* Order of the sort can be the flag */
+    sort_list->order = flag;
+    sort_list->len = len;
 
     return sort_list;
 }
