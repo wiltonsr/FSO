@@ -22,8 +22,9 @@ int count_null(const int len, char *argv[]);
 Sortlist *create_sort_list(
         const int len,
         const int flag,
-        const int *sort_list
+        const int *sort_list_int
         );
+
 // Remove a string in a determinate position of the array
 char **remove_string_position(
         const int position_flag,

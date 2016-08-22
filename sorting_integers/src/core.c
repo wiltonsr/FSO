@@ -22,6 +22,7 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
     int *sort_list_int;
     int argv_len = argc - count_null(argc, argv);
     sort_list_int = parser_to_int(argv_len, argc, argv);
+    sort_list = create_sort_list(argv_len, flag, sort_list_int);
 
     return sort_list;
 }
@@ -29,9 +30,12 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
 Sortlist *create_sort_list(
         const int len,
         const int flag,
-        const int *sort_list
+        const int *sort_list_int
         ){
-    return NULL;
+
+    Sortlist *sort_list = malloc(sizeof(Sortlist));
+
+    return sort_list;
 }
 
 int *parser_to_int(const int argv_len, const int argc, char *argv[]){
