@@ -20,16 +20,13 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
     remove_string_position(0, argc, argv);
 
     int *sort_list_int;
-    sort_list_int = parser_to_int(argc, argv);
-    int len = sizeof(&sort_list_int)/sizeof(int);
-    printf("%d\n", len);
-    printf("%d\n", sort_list_int[2]);
+    int argv_len = argc - count_null(argc, argv);
+    sort_list_int = parser_to_int(argv_len, argc, argv);
 
     return sort_list;
 }
 
-int *parser_to_int(const int argc, char *argv[]){
-    int argv_len = argc - count_null(argc, argv);
+int *parser_to_int(const int argv_len, const int argc, char *argv[]){
     int *list_int = malloc(argv_len* sizeof(int));
 
     int int_array_position = 0;

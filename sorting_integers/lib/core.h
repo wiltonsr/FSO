@@ -13,10 +13,10 @@ Sortlist *get_sort_list(const int TYPE, const int argc, char *argv[]);
 int find_flag(const int FLAG, const int argc, char *argv[]);
 
 // Parser a array of strings in int
-int *parser_to_int(const int argc, char *argv[]);
+int *parser_to_int(const int argv_len, const int argc, char *argv[]);
 
 // Count a number of null in a array
-int count_null(int len, void *array);
+int count_null(const int len, char *argv[]);
 
 // Remove a string in a determinate position of the array
 char **remove_string_position(
