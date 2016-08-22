@@ -3,6 +3,7 @@
 
 typedef struct Sortlist{
     int *int_list;
+    int list_len;
     char order;
 } Sortlist;
 
