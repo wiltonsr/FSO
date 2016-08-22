@@ -13,12 +13,20 @@ Sortlist *get_sort_list(const int flag, const int argc, char *argv[]){
         }
         else
             /* Returns null if the flag is unknow */
-            sort_list = NULL;
+            return NULL;
     }
+
+    /* It will remove the first arg, the name of the program */
+    remove_string_position(0, argc, argv);
+
     return sort_list;
 }
 
-char **remove_flag(const int position_flag, const int argc, char *argv[]){
+char **remove_string_position(
+        const int position_flag,
+        const int argc,
+        char *argv[]
+        ){
     /* Create an array with argv len less one, from the flag which will */
     /* be removed */
 
