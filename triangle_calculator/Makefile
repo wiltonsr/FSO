@@ -5,7 +5,7 @@ SOURCE = $(SRC_DIR)main.c $(SRC_DIR)io.c $(SRC_DIR)operations.c
 PROGRAM = triangle_calculator
 EXECUTABLE = run
 MKDIR_P = mkdir -p
-LINK_FORCE = ln -n
+LINK_FORCE = ln -fn
 MOVE_FILE = mv
 CFLAGS = -lm -std=c11
 CC = gcc
