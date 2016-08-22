@@ -28,13 +28,19 @@ void print_man(){
     printf("In 2nd form, put just the follow itengers and they will sort ");
     printf("in crescent order\n");
     printf("\n");
-    printf("The all option be:\n");
+    printf("All option or input are:\n");
     printf("\n");
     printf("\t-d, \t\t\tsort in crescent order\n");
     printf("\t-r, \t\t\tsort in decreasing order\n");
     printf("\t-h, --help \t\tshow this help\n");
+    printf("\n");
+    printf("Example:\n");
+    printf("\t\t./run -d 4 5 34 3 9 1 10\n");
+    printf("\tor:\t./run -r 4 5 34 3 9 1 10\n");
+    printf("\tor:\t./run 4 5 34 3 9 1 10\n");
+    printf("\n");
     printf("Thank you to use our program. Contact us from email: ");
-    printf("tiago@sof2u.com\n");
+    printf("tiago@sof2u.com or braynwilton@gmail.com\n");
 }
 
 void print_error(const char *message){
