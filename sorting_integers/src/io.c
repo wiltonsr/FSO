@@ -8,7 +8,7 @@ const char *MISSING_ARG = "An arg is missing";
 const char *MISSING_INTEGER = "Put some integers to sort";
 const int EMPTY_ARG = 0;
 const int CRESCENT_ARG = 1;
-const int DECREASIN_ARG = 2;
+const int DECREASING_ARG = 2;
 const int HELP_ARG = 3;
 const int ERROR_ARG = 4;
 
@@ -75,7 +75,7 @@ int validate_argv(int argc, char *argv[]){
         else if(strcmp(argv[i], "-d") == 0)
             validate_response = check_argc_argv(argc, CRESCENT_ARG);
         else if(strcmp(argv[i], "-r") == 0)
-            validate_response = check_argc_argv(argc, DECREASIN_ARG);
+            validate_response = check_argc_argv(argc, DECREASING_ARG);
 
         if (validate_response)
             return validate_response;

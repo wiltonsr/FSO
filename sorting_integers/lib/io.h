@@ -26,7 +26,7 @@ extern const char *MISSING_INTEGER;
 // Flags to identify types of args
 extern const int EMPTY_ARG;
 extern const int CRESCENT_ARG;
-extern const int DECREASIN_ARG;
+extern const int DECREASING_ARG;
 extern const int HELP_ARG;
 extern const int ERROR_ARG;
 

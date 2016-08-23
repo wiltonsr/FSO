@@ -93,7 +93,7 @@ int find_flag(const int flag, const int argc, char *argv[]){
             if (strcmp(argv[i], "-d") == 0)
                 position_flag = i;
         }
-        else if(flag ==  DECREASIN_ARG){
+        else if(flag ==  DECREASING_ARG){
             if (strcmp(argv[i], "-r") == 0)
                 position_flag = i;
         }
