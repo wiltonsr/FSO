@@ -1,31 +1,49 @@
-SRC_DIR = src/
-OBJ_DIR = obj/
-BIN_DIR = bin/
-SOURCE = $(SRC_DIR)main.c $(SRC_DIR)io.c $(SRC_DIR)operations.c
-PROGRAM = triangle_calculator
-EXECUTABLE = run
+#------------------------------------------------------------------------------
+# Directories
+#------------------------------------------------------------------------------
+SRC_DIR = src
+OBJ_DIR = obj
+BIN_DIR = bin
+
+#------------------------------------------------------------------------------
+# All source and objects files
+#------------------------------------------------------------------------------
+SOURCE = ${wildcard $(SRC_DIR)/*.c}
+OBJ = ${wildcard $(OBJ_DIR)/*.o}
+
+#------------------------------------------------------------------------------
+# Alias to commands
+#------------------------------------------------------------------------------
 MKDIR_P = mkdir -p
 LINK_FORCE = ln -fn
-MOVE_FILE = mv
-CFLAGS = -lm -std=c11
 CC = gcc
 
-.PHONY: clean directories link
+#------------------------------------------------------------------------------
+# Flags to compile
+#------------------------------------------------------------------------------
+CFLAGS = -lm -std=c11 $(INCLUDE)
+INCLUDE = -Iinclude/
+
+#------------------------------------------------------------------------------
+# Executable's name
+#------------------------------------------------------------------------------
+PROGRAM = triangle_calculator
+EXECUTABLE = run
+
+.PHONY: clean directories
 
 all: directories $(PROGRAM)
 
 $(PROGRAM): $(SOURCE)
-	$(CC) -c $(SRC_DIR)main.c -o $(OBJ_DIR)main.o
-	$(CC) -c $(SRC_DIR)io.c -o $(OBJ_DIR)io.o $(CFLAGS)
-	$(CC) -c $(SRC_DIR)operations.c -o $(OBJ_DIR)operations.o $(CFLAGS)
-	$(CC) $(OBJ_DIR)* -o $(BIN_DIR)$(PROGRAM) $(CFLAGS)
-	$(LINK_FORCE) $(BIN_DIR)$(PROGRAM) $(EXECUTABLE)
+	$(CC) -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
+	$(CC) -c $(SRC_DIR)/io.c -o $(OBJ_DIR)/io.o $(CFLAGS)
+	$(CC) -c $(SRC_DIR)/operations.c -o $(OBJ_DIR)/operations.o $(CFLAGS)
+	$(CC) $(OBJ) -o $(BIN_DIR)/$(PROGRAM) $(CFLAGS)
+	$(LINK_FORCE) $(BIN_DIR)/$(PROGRAM) $(EXECUTABLE)
 
 directories:
 	$(MKDIR_P) $(OBJ_DIR)
 	$(MKDIR_P) $(BIN_DIR)
-
-$(EXECUTABLE):
 
 clean:
 	rm -f $(PROGRAM)
