@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 void make_manipulation(){
@@ -13,7 +14,11 @@ void make_manipulation(){
     printf("%p\n", &number1);
     printf("%p\n", dPtr);
 
-    /* printf("%d\n", *dPtr); */
+    scanf("%s", &s1);
+    strcpy(s2, s1);
+    int compare = strcmp(s1, s2);
+    printf("%d\n", compare);
+
 }
 
 int main(void){
