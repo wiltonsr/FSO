@@ -1,7 +1,8 @@
 #define _GNU_SOURCE
-#include "../lib/io.h"
-#include "../lib/triangle.h"
-#include "../lib/operations.h"
+#include "io.h"
+#include "operations.h"
+#include "triangle.h"
+
 
 int main(void){
     Triangle *triangle = get_triangle();

@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <math.h>
-#include "../lib/triangle.h"
-#include "../lib/operations.h"
+#include "triangle.h"
+#include "operations.h"
 
 double calculate_area(Triangle *triangle){
     Point *a = triangle->point[0];
