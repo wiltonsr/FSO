@@ -83,3 +83,14 @@ int validate_argv(int argc, char *argv[]){
 
     return validate_response;
 }
+
+void print_list(const int len, const int *list){
+    int i = 0;
+    printf("%d", list[i]);
+
+    for (i = 1; i < len; i++) {
+        printf(" %d", list[i]);
+    }
+
+    printf("\n");
+}

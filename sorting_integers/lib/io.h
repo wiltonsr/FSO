@@ -16,6 +16,9 @@ int check_argc_argv(int argc, int flag);
 // Validate all argv
 int validate_argv(int argc, char *argv[]);
 
+// Print the output sorted
+void print_list(const int len, const int *list);
+
 // Global messages to send to print error
 extern const char *MISSING_ARG;
 extern const char *MISSING_INTEGER;
