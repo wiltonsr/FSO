@@ -21,7 +21,14 @@ int crescent(const void * rigth, const void * left){
 
 Sortlist *make_sort(Sortlist *sort_list){
     int *list = sort_list->int_list;
-    qsort(list, sort_list->list_len, sizeof(int), decreasing);
+    int order = sort_list->order;
+    int len = sort_list->list_len;
+
+    if(order == DECREASING_ARG)
+        qsort(list, len, sizeof(int), decreasing);
+    else
+        qsort(list, len, sizeof(int), crescent);
+
     sort_list->int_list = list;
 
     return sort_list;
