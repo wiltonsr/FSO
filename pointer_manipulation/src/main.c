@@ -8,16 +8,21 @@ void make_manipulation(){
 
     double *dPtr;
     dPtr = &number1;
-    printf("%lf\n", *dPtr);
+    printf("Value of dPtr: %lf\n", *dPtr);
     number2 = *dPtr;
-    printf("%lf\n", number2);
-    printf("%p\n", &number1);
-    printf("%p\n", dPtr);
+    printf("Value of number2: %lf\n", number2);
+    printf("Pointer to number1: %p\n", &number1);
+    printf("Pointer to dPtr: %p\n", dPtr);
 
+    printf("Put a string: ");
     scanf("%s", &s1);
     strcpy(s2, s1);
     int compare = strcmp(s1, s2);
-    printf("%d\n", compare);
+    printf("Compare to s1 and s2: %d\n", compare);
+    strcat(s1, s2);
+    printf("Concat of s1 and s2: %s\n", s1);
+    int len = strlen(s1);
+    printf("Len of |%s| is |%d|\n", s1, len);
 
 }
 
