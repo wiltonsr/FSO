@@ -19,6 +19,13 @@ void make_manipulation(){
     printf("Pointer to number1: %p\n", &number1);
     printf("Pointer to dPtr: %p\n", dPtr);
 
+    /* O valor impresso decorrente do enunciado que contempla o */
+    /* item anterior */
+    /* é igual ao valor do endereço gravado em dPrt? */
+    /*  */
+    /* Não, pois, o valor de dPtr é apenas um ponteiro */
+    /* indicando o endereço da variavel number1 */
+
     // Get a string
     printf("Put a string: ");
     scanf("%s", &s1);
