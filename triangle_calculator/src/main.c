@@ -10,13 +10,22 @@ int main(void){
     double *sides = calculate_sides(triangle);
     double perimeter = calculate_perimeter(triangle);
 
-    if(area >= 0 || perimeter >= 0){
+    if(area > 0 && perimeter > 0){
         print_area(area);
         print_len_sides(sides);
         print_perimeter(perimeter);
     }
-    else
-        print_error();
+    else{
+        if(area <= 0){
+            print_error("This triangle not exists.");
+        }
+        else if(perimeter <= 0){
+            print_error("This triangle not exists.");
+        }
+        else{
+            print_error("");
+        }
+    }
 
     free_memory(triangle);
     free_memory(sides);

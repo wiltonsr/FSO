@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "io.h"
 #include "triangle.h"
 
@@ -41,6 +42,11 @@ void print_area(double area){
     printf("The area is %.2lf\n", area);
 }
 
-void print_error(){
-    printf("Program error. Exiting...");
+void print_error(char *message){
+    if(strcmp(message, "") != 0){
+        printf("ERROR: %s Exiting...\n", message);
+    }
+    else{
+        printf("ERROR: program error. Exiting...\n");
+    }
 }
