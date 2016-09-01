@@ -8,7 +8,7 @@ Point *get_point(int point_number){
     Point *point = malloc(sizeof(Point));
     int x, y;
 
-    printf("Put coordinates X and Y of the point %d (0 0):\n", point_number);
+    printf("Put coordinates X and Y of the point %d (0 0):\n", point_number + 1);
     scanf("%d %d", &x, &y);
     point->x = x;
     point->y = y;
@@ -30,7 +30,7 @@ Triangle *get_triangle(){
 
 void print_len_sides(double *sides){
     for (int i = 0; i < 3; i++) {
-        printf("The len of the side %d is %.2lf\n", i, sides[i]);
+        printf("The len of the side %d is %.2lf\n", i + 1, sides[i]);
     }
 }
 
