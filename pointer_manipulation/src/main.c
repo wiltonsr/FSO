@@ -41,6 +41,14 @@ void make_manipulation(){
     strcat(s1, s2);
     printf("Concat of s1 and s2: %s\n", s1);
 
+    /* A execução do item anterior pode provocar algum erro em */
+    /* tempo de execução? */
+    /*  */
+    /* Sim, pois de acordo com a função utilizada para concatenar as Strings */
+    /* (strcat()) caso a string de destino não seja grando o suficiente para */
+    /* armazenar ambas as strings, o comportamento do programa se torna */
+    /* imprevisível. */
+
     // Calculate the len of the s1
     int len = strlen(s1);
     printf("Len of |%s| is |%d|\n", s1, len);
