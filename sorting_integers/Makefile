@@ -7,7 +7,7 @@ EXECUTABLE = run
 MKDIR_P = mkdir -p
 MOVE_FILE = mv
 LINK_FORCE = ln -fn
-CFLAGS = -std=c11
+CFLAGS = -std=c11 -Wall -O2
 CC = gcc
 
 .PHONY: clean directories

@@ -27,7 +27,7 @@ LINK_FORCE = ln -fn
 #------------------------------------------------------------------------------
 CC = gcc
 INCLUDE = -Iinclude/
-CFLAGS = -lm -std=c11 $(INCLUDE)
+CFLAGS = -lm -O2 -Wall -std=c11 $(INCLUDE)
 
 #------------------------------------------------------------------------------
 # Executable's name
