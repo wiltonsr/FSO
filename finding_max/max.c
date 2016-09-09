@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include<stdlib.h>
 #include<pthread.h>
+
 #define MAX 100
 typedef struct Array{
     int x;
@@ -13,15 +14,11 @@ typedef struct pair_compare_t{
     Array *right;
 }pair_compare_t;
 
-/* int *w[MAX]; */
-/* int x[MAX]; */
-/* int max = 0; */
-
-/* void * print( void * args ){ */
-/*   int *val = (int *)(args); */
-/*   if (w[*val] == 1) */
-/*     printf("%d\n", x[*val]); */
-/* } */
+void * print( void * args ){
+  Array *val= (Array*) args;
+  if (val->w == 1)
+    printf("%d\n", val->x);
+}
 
 void * compare( void * args ){
     pair_compare_t * pair_compare = (pair_compare_t*) args;
@@ -78,26 +75,17 @@ int main(int argc, char *argv[])
         }
     }
 
-    for(int i = 0; i < NUM_INITIALIZER; i++){
-        pthread_join(thread[i], NULL);
-    }
 
     for (int i = 0; i < NUM_INITIALIZER; i++) {
         printf("w = %d\n", thread_args[i].w);
     }
-    /* for(int i = 0; i < NUM_INITIALIZER; i++){ */
-    /*   pthread_create(&thread[i], NULL, compare, (void *)(&x[i])); */
-    /*   pthread_join(thread[i], NULL); */
-    /* } */
-    /*  */
-    /* for(int i = 0; i < NUM_INITIALIZER; i++){ */
-    /*   printf("%d\n", w[i]); */
-    /* } */
-    /*  */
-    /* for(int i = 0; i < NUM_INITIALIZER; i++){ */
-    /*   pthread_create(&thread[i], NULL, print, (void *)(&i)); */
-    /*   pthread_join(thread[i], NULL); */
-    /* } */
-    /*  */
+
+    for(int i = 0; i < NUM_INITIALIZER; i++){
+      pthread_create(&thread[i], NULL, print, &thread_args[i]);
+    }
+
+    for(int i = 0; i < NUM_INITIALIZER; i++){
+        pthread_join(thread[i], NULL);
+    }
     return 0;
 }
