@@ -3,6 +3,7 @@
 #include<pthread.h>
 
 #define MAX 100
+
 typedef struct Array{
     int x;
     int w;
@@ -13,6 +14,12 @@ typedef struct pair_compare_t{
     Array *left;
     Array *right;
 }pair_compare_t;
+
+void make_join(pthread_t *threads, int number_threads){
+    for(int i = 0; i < number_threads; i++){
+        pthread_join(threads[i], NULL);
+    }
+}
 
 void * print( void * args ){
   Array *val= (Array*) args;
@@ -51,9 +58,7 @@ int main(int argc, char *argv[])
     }
 
 
-    for(int i = 0; i < NUM_INITIALIZER; i++){
-        pthread_join(thread[i], NULL);
-    }
+    make_join(thread, NUM_INITIALIZER);
 
     pair_compare_t *pair_compare = malloc(
             NUM_COMPARATIONS * sizeof(pair_compare_t)
@@ -75,17 +80,12 @@ int main(int argc, char *argv[])
         }
     }
 
-
-    for (int i = 0; i < NUM_INITIALIZER; i++) {
-        printf("w = %d\n", thread_args[i].w);
-    }
+    make_join(thread, NUM_INITIALIZER);
 
     for(int i = 0; i < NUM_INITIALIZER; i++){
       pthread_create(&thread[i], NULL, print, &thread_args[i]);
     }
 
-    for(int i = 0; i < NUM_INITIALIZER; i++){
-        pthread_join(thread[i], NULL);
-    }
+    make_join(thread, NUM_INITIALIZER);
     return 0;
 }
