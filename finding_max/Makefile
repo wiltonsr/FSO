@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 # Project's name
 #------------------------------------------------------------------------------
-PROGRAM = triangle_calculator
+PROGRAM = finding_max
 
 #------------------------------------------------------------------------------
 # Directories
@@ -39,16 +39,16 @@ EXECUTABLE = run
 all: directories $(PROGRAM)
 
 $(PROGRAM): $(SOURCE)
-	@echo "Initing compilation..."
-	@echo "Compile source files"
-	$(CC) -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
-	$(CC) -c $(SRC_DIR)/io.c -o $(OBJ_DIR)/io.o $(CFLAGS)
-	$(CC) -c $(SRC_DIR)/operations.c -o $(OBJ_DIR)/operations.o $(CFLAGS)
-	@echo "Compile objects to main"
-	$(CC)  $(OBJ) -o $(BIN_DIR)/$(PROGRAM) $(CFLAGS)
-	@echo "Creating link to run"
-	$(LINK_FORCE) $(BIN_DIR)/$(PROGRAM) $(EXECUTABLE)
-	@echo "Done!"
+	# @echo "Initing compilation..."
+	# @echo "Compile source files"
+	# $(CC) -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
+	# $(CC) -c $(SRC_DIR)/io.c -o $(OBJ_DIR)/io.o $(CFLAGS)
+	# $(CC) -c $(SRC_DIR)/operations.c -o $(OBJ_DIR)/operations.o $(CFLAGS)
+	# @echo "Compile objects to main"
+	# $(CC)  $(OBJ) -o $(BIN_DIR)/$(PROGRAM) $(CFLAGS)
+	# @echo "Creating link to run"
+	# $(LINK_FORCE) $(BIN_DIR)/$(PROGRAM) $(EXECUTABLE)
+	# @echo "Done!"
 
 directories:
 	@$(MKDIR_P) $(OBJ_DIR)
