@@ -44,8 +44,6 @@ void *get_sum(void *args){
 
 void make_join(pthread_t *threads, int number_threads){
     for(int i = 0; i < number_threads; i++){
-        int id_i = i/3;
-        int id_j = i%3;
         pthread_join(threads[i], NULL);
     }
 }
