@@ -7,6 +7,8 @@ typedef struct id_t{
     int a1;
     int b0;
     int b1;
+    int id_x;
+    int id_y;
 }id_t;
 
 int a[3][2] = {
@@ -37,11 +39,13 @@ void *get_sum(void *args){
     int sum_elem = 0;
 
     sum_elem = a0 * b0 + a1 * b1;
-    printf("%d\n", sum_elem);
+    c[id->id_x][id->id_y] = sum_elem;
 }
 
 void make_join(pthread_t *threads, int number_threads){
     for(int i = 0; i < number_threads; i++){
+        int id_i = i/3;
+        int id_j = i%3;
         pthread_join(threads[i], NULL);
     }
 }
@@ -59,6 +63,8 @@ void iterate_matrix(){
             id->a1 = a[i][1];
             id->b0 = b[0][j];
             id->b1 = b[1][j];
+            id->id_x = i;
+            id->id_y = j;
 
             pthread_create(&thread[count], NULL, get_sum, id);
             count++;
