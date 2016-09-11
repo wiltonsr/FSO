@@ -4,6 +4,7 @@
 *.obj
 *.elf
 obj/
+*.docx
 
 # Precompiled Headers
 *.gch
