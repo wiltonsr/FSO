@@ -52,7 +52,7 @@ void iterate_matrix(){
   int result = 0;
   int count = 0;
   int count_threads = 0;
-  int num_proc = system("cat /proc/cpuinfo | grep -c processor");
+  int num_proc = 4;
   pthread_t thread[9];
 
   for (int i = 0; i < 3; i++) {
@@ -72,9 +72,11 @@ void iterate_matrix(){
       if (num_proc == count){
         make_join(thread, count_threads);
         count_threads = 0;
+        count = 0;
       }
     }
   }
+  make_join(thread, count_threads);
 }
 
 void print_matrix(){
