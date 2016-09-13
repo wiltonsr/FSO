@@ -77,7 +77,7 @@ void iterate_matrix(){
       }
     }
   }
-  make_join(thread, count_threads);
+  make_join(thread, 9%num_proc);
 }
 
 void print_matrix(){
