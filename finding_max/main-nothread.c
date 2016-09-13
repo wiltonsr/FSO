@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<assert.h>
 #include<stdlib.h>
 
 typedef struct Array{
@@ -6,17 +7,20 @@ typedef struct Array{
   int w;
   int n;
 }Array;
-#define MAX 100
 
 int main(int argc, char *argv[])
 {
-  int NUM_INITIALIZER = argc - 1;
-  int NUM_COMPARATIONS= ((argc - 1)*(argc - 2))/2;
+  int n = atoi(argv[1]);
+  assert( n <= 100 );
+  assert( n > 0 );
+  int NUM_INITIALIZER = n;
+  int NUM_COMPARATIONS= ((n - 1)*(n - 2))/2;
 
   Array *array = malloc(NUM_INITIALIZER * sizeof(Array));
 
   for(int i = 0; i < NUM_INITIALIZER; i++){
-    array[i].x = atoi(argv[i+1]);
+    assert(argv[i+2] != NULL);
+    array[i].x = atoi(argv[i+2]);
     array[i].n = i;
   }
 
