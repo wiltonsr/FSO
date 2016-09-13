@@ -1,23 +1,24 @@
 #include <stdio.h>
 #include<stdlib.h>
+#include<assert.h>
 #include<pthread.h>
 #include "max.h"
 #include "structure.h"
 
-#define MAX 100
-
-
-
 int main(int argc, char *argv[])
 {
-  int NUM_INITIALIZER = argc - 1;
-  int NUM_COMPARATIONS= ((argc - 1)*(argc - 2))/2;
+  int n = atoi(argv[1]);
+  assert( n <= 100 );
+  assert( n > 0 );
+  int NUM_INITIALIZER = n;
+  int NUM_COMPARATIONS= ((n - 1)*(n - 2))/2;
   pthread_t thread[NUM_INITIALIZER];
 
   Array *thread_args = malloc(NUM_INITIALIZER * sizeof(Array));
 
   for(int i = 0; i < NUM_INITIALIZER; i++){
-    thread_args[i].x = atoi(argv[i+1]);
+    assert(argv[i+2] != NULL);
+    thread_args[i].x = atoi(argv[i+2]);
     thread_args[i].n = i;
   }
 
