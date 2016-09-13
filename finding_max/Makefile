@@ -45,6 +45,7 @@ $(PROGRAM): $(SOURCE)
 	$(CC) -c $(SRC_DIR)/max.c -o $(OBJ_DIR)/max.o $(CFLAGS)
 	@echo "Compile objects to main"
 	$(CC)  $(OBJ) -o $(BIN_DIR)/$(PROGRAM) $(CFLAGS)
+	$(CC)  main-nothread.c -o run_main-nothread $(CFLAGS)
 	@echo "Creating link to run"
 	$(LINK_FORCE) $(BIN_DIR)/$(PROGRAM) $(EXECUTABLE)
 	@echo "Done!"
@@ -61,6 +62,7 @@ clean:
 	rm -rf $(BIN_DIR)
 	@echo "Clean objects..."
 	rm -f $(OBJ)
+	rm -f run_main-nothread
 	rm -rf $(OBJ_DIR)
 	rm -rf *.o
 	@echo "Ready exclusion!"
