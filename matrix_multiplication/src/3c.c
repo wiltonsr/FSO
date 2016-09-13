@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include<pthread.h>
+#include<sys/sysinfo.h>
 
 typedef struct identifier_t{
   int a0;
@@ -52,7 +53,7 @@ void iterate_matrix(){
   int result = 0;
   int count = 0;
   int count_threads = 0;
-  int num_proc = 4;
+  int num_proc = get_nprocs();
   pthread_t thread[9];
 
   for (int i = 0; i < 3; i++) {
