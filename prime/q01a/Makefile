@@ -30,7 +30,7 @@ CC = gcc
 AR = ar
 INCLUDE = -Iheaders/
 CFLAGS = -std=c11 -lm $(INCLUDE)
-CFLAGS2 = -std=c11 -lm
+CFLAGS2 = -std=c11
 LIBFLAGS = -lprimo
 ARCHIVE = libprimo.a
 
