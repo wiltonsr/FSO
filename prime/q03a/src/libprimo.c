@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include <stdio.h>
 #define NOT_PRIME 10
 #define PRIME 0
 

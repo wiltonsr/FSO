@@ -1,7 +1,7 @@
 #------------------------------------------------------------------------------
 # Project's name
 #------------------------------------------------------------------------------
-PROGRAM = prime_q01a
+PROGRAM = prime_q01b
 
 #------------------------------------------------------------------------------
 # Directories
@@ -27,12 +27,13 @@ LINK_FORCE = ln -fn
 # Compilator and flags
 #------------------------------------------------------------------------------
 CC = gcc
-AR = ar
 INCLUDE = -Iheaders/
-CFLAGS = -std=c11 -lm $(INCLUDE)
-CFLAGS2 = -std=c11 -lm
-LIBFLAGS = -lprimo
-ARCHIVE = libprimo.a
+CFLAGS = -std=c11 -lm $(INCLUDE) -ldl
+SOFLAGS = -fPIC
+SOFLAGS2 = -shared -fPIC
+SHAREDO = libprimo.so
+LIBRARY = -lprimo
+LIBFLAGS = -Wl,-rpath,./lib -lm
 
 #------------------------------------------------------------------------------
 # Executable's name
@@ -49,12 +50,12 @@ all: directories $(PROGRAM)
 $(PROGRAM): $(SOURCE)
 	@echo "Initing compilation..."
 	@echo "Compile source files"
-	$(CC) -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
-	$(CC) -c $(SRC_DIR)/libprimo.c -o $(OBJ_DIR)/libprimo.o $(CFLAGS)
-	@echo "Creating archive"
-	$(AR) cr $(LIB_DIR)/$(ARCHIVE) $(OBJ_DIR)/main.o $(OBJ_DIR)/libprimo.o
+	$(CC) -c $(SOFLAGS) $(SRC_DIR)/libprimo.c -o $(OBJ_DIR)/libprimo.o $(CFLAGS)
+	@echo "Creating shared object"
+	$(CC) $(SOFLAGS2) -o $(LIB_DIR)/$(SHAREDO) $(OBJ_DIR)/libprimo.o
 	@echo "Compile objects to main"
-	$(CC) -o $(BIN_DIR)/$(PROGRAM) $(OBJ_DIR)/main.o -L./$(LIB_DIR) $(LIBFLAGS) $(CFLAGS)
+	$(CC) -c $(SRC_DIR)/main.c -o $(OBJ_DIR)/main.o $(CFLAGS)
+	$(CC) -o $(BIN_DIR)/$(PROGRAM) $(OBJ_DIR)/main.o -L./$(LIB_DIR) $(LIBRARY) $(LIBFLAGS) $(CFLAGS)
 	@echo "Creating link to run"
 	$(LINK_FORCE) $(BIN_DIR)/$(PROGRAM) $(EXECUTABLE)
 	@echo "Done!"
