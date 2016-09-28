@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
-#include <stdio.h>
+#include <limits.h>
 #define NOT_PRIME 10
 #define PRIME 0
 
@@ -11,7 +11,7 @@ int gera_primo(){
   unsigned int num = NOT_PRIME;
   while (testa_primo(num) != PRIME){
     srand(time(NULL));
-    num = rand() % 4294967295;
+    num = rand() % UINT_MAX;
   }
   return num;
 }
