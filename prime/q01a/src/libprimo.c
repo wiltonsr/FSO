@@ -26,14 +26,3 @@ int gera_primo(){
   }
   return num;
 }
-
-/*  */
-/*     int testa_primo(int primo){ */
-/* 	return 0; */
-/*   } */
-/*  */
-/*   if(teste(primo) != 0) */
-/*     return 1; */
-/*   else */
-/*     return 0; */
-/* } */
