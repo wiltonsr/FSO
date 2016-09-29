@@ -8,8 +8,8 @@
 int gera_primo(){
 
   unsigned int num = NOT_PRIME;
+  srand(time(NULL));
   while (testa_primo(num) != PRIME){
-    srand(time(NULL));
     num = rand() % 4294967295;
   }
   return num;

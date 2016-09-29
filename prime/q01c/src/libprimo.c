@@ -9,8 +9,8 @@
 int gera_primo(){
 
   unsigned int num = NOT_PRIME;
+  srand(time(NULL));
   while (testa_primo(num) != PRIME){
-    srand(time(NULL));
     num = rand() % UINT_MAX;
   }
   return num;

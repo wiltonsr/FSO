@@ -3,8 +3,8 @@
 #include "libprimo.h"
 
 int main(){
-  unsigned int i = gera_primo();
+   int i = gera_primo();
 
-  printf("%u\n", i);
+  printf("%d\n", i);
   return 0;
 }
