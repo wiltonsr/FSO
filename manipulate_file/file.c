@@ -38,9 +38,21 @@ void print_file(struct stat file_stats, char *argv[]){
 }
 
 int main(int argc, char *argv[]) {
+
+  struct stat file_stats;
+
+  if(argc != 3 || strlen(argv[2]) != 12){
+    printf("Use: ./run file.name AAAAMMDDHHmm\nWhen A is the year, \nM the month, \nD the day, \nH the hour \nand m the minute\n");
+    exit(EXIT_FAILURE);
+  }
+
+  if((stat(argv[1], &file_stats)) == -1) {
+    perror("fstat");
+    return 1;
+  }
+
   pthread_t bkp_thread;
   pthread_create(&bkp_thread, NULL, &bkp_file, &argv[1]);
-  struct stat file_stats;
   time_t mtime;
   struct utimbuf new_times;
   struct tm new_date = {0};
@@ -78,14 +90,6 @@ int main(int argc, char *argv[]) {
   new_date.tm_min = atoi(minute_string);
 
   mtime = mktime(&new_date);
-
-  if(argc != 3)
-    fprintf(stderr, "Use: ./run file.name AAAAMMDDHHmm\n"), exit(EXIT_FAILURE);
-
-  if((stat(argv[1], &file_stats)) == -1) {
-    perror("fstat");
-    return 1;
-  }
 
   print_file(file_stats, argv);
 

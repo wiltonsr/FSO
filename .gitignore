@@ -38,3 +38,4 @@ run
 rel/
 teste.txt.bkp
 prog
+*.bkp
