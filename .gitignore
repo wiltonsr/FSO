@@ -36,3 +36,5 @@ run
 *.dSYM/
 *.su
 rel/
+teste.txt.bkp
+prog
