@@ -1,5 +1,6 @@
 #include <time.h>
 #include <string.h>
+#include<pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -7,9 +8,21 @@
 #include <sys/types.h>
 #include <sys/time.h>
 
+void* bkp_file(void* args){
+  char** file = (char**)args;
+  char command[50] = "cp ";
+  strcat(command, *file);
+  strcat(command, " ");
+  strcat(command, *file);
+  strcat(command, ".bkp");
+  system(command);
+  return NULL;
+}
+
 void print_file(struct stat file_stats, char *argv[]){
   printf("Filename: %s\n", argv[1]);
   printf("Time of last modification: %s", ctime(&file_stats.st_mtime));
+  printf("Time of last acess: %s", ctime(&file_stats.st_atime));
   printf("File Permissions: ");
   printf((S_ISDIR(file_stats.st_mode)) ? "d" : "-");
   printf((file_stats.st_mode & S_IRUSR) ? "r" : "-");
@@ -25,7 +38,8 @@ void print_file(struct stat file_stats, char *argv[]){
 }
 
 int main(int argc, char *argv[]) {
-  /* change name */
+  pthread_t bkp_thread;
+  pthread_create(&bkp_thread, NULL, &bkp_file, &argv[1]);
   struct stat file_stats;
   time_t mtime;
   struct utimbuf new_times;
@@ -55,12 +69,12 @@ int main(int argc, char *argv[]) {
   memcpy(minute_string, &full_date[10], 12);
   minute_string[2] = '\0';
 
-  new_date.tm_year = atoi(year_string);
-  new_date.tm_mon = atoi(month_string);
+  new_date.tm_year = atoi(year_string) - 1900;
+  new_date.tm_mon = atoi(month_string) - 1;
   new_date.tm_mday = atoi(day_string);
 
   /* Limitations on hour of the summer */
-  new_date.tm_hour = atoi(hour_string);
+  new_date.tm_hour = atoi(hour_string) - 1;
   new_date.tm_min = atoi(minute_string);
 
   mtime = mktime(&new_date);
@@ -75,10 +89,13 @@ int main(int argc, char *argv[]) {
 
   print_file(file_stats, argv);
 
+  pthread_join(bkp_thread, NULL);
+
   new_times.actime = mtime;
   new_times.modtime = mtime;
   utime(argv[1], &new_times);
   stat(argv[1], &file_stats);
+
 
   print_file(file_stats, argv);
   return 0;
