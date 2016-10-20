@@ -5,19 +5,22 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-void print_30_bytes(char path[256]){
-    size_t* length;
-    *length = 30 * sizeof(char*);
-    char* buffer;
-    int fd = open(path, O_RDONLY);
-    lseek (fd, 0, SEEK_SET);
-    read (fd, length, sizeof (*length));
-    buffer = (char*) malloc (*length);
-    read (fd, buffer, *length);
-    close (fd);
+int count = 0;
+
+void print_30_bytes(char path[256], const int max_words){
+    /* printf("%d\n", count); */
+    if(count == max_words) return;
+
+    FILE* sigD = fopen(path, "r");
+    char *sig[255];
+    fread(sig, 1, sizeof(sig), sigD);
+    count++;
+    printf("%d. %s --\n", count, path);
+    printf("\t%s", sig);
 }
 
-navigate_dir(char path[]){
+navigate_dir(char path[], const int max_words){
+
     DIR *d;
     struct dirent *dir;
     d = opendir(path);
@@ -34,10 +37,10 @@ navigate_dir(char path[]){
 
 		    if(dir->d_type == 4){
 			strcat(dir_name, "/");
-			navigate_dir(dir_name);
+			navigate_dir(dir_name, max_words);
 		    }
 		    else{
-			print_30_bytes(dir_name);
+			print_30_bytes(dir_name, max_words);
 		    }
 		}
 	    }
@@ -53,8 +56,9 @@ int main(int argc, char *argv[])
 	printf("Use: ./buscador /path/to/want word_to_seek number_max\n");
 	exit(EXIT_FAILURE);
     }
+    const int max_words = atoi(argv[3]);
 
-    navigate_dir(argv[1]);
+    navigate_dir(argv[1], max_words);
 
     return 0;
 }
