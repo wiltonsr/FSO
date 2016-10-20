@@ -2,6 +2,20 @@
 #include <stdlib.h>
 #include <dirent.h>
 #include <string.h>
+#include <sys/types.h>
+#include <fcntl.h>
+
+void print_30_bytes(char path[256]){
+    size_t* length;
+    *length = 30 * sizeof(char*);
+    char* buffer;
+    int fd = open(path, O_RDONLY);
+    lseek (fd, 0, SEEK_SET);
+    read (fd, length, sizeof (*length));
+    buffer = (char*) malloc (*length);
+    read (fd, buffer, *length);
+    close (fd);
+}
 
 navigate_dir(char path[]){
     DIR *d;
@@ -11,21 +25,22 @@ navigate_dir(char path[]){
     if (d){
 	while ((dir = readdir(d)) != NULL)
 	{
-	    char dir_name[265] = "";
+	    char dir_name[256] = "";
 	    strcat(dir_name, path);
 	    strcat(dir_name, dir->d_name);
-	    strcat(dir_name, "/");
 
-	    if(!(strcmp(dir->d_name, ".") == 0))
-		if(!(strcmp(dir->d_name, "..") == 0))
-		    printf("%s\n", dir_name);
+	    if(!(strcmp(dir->d_name, ".") == 0)){
+		if(!(strcmp(dir->d_name, "..") == 0)){
 
-	    if(dir->d_type == 4)
-		if(!(strcmp(dir->d_name, ".") == 0))
-		    if(!(strcmp(dir->d_name, "..") == 0)){
-			printf("%s\n", dir_name);
+		    if(dir->d_type == 4){
+			strcat(dir_name, "/");
 			navigate_dir(dir_name);
 		    }
+		    else{
+			print_30_bytes(dir_name);
+		    }
+		}
+	    }
 	}
 	closedir(d);
     }
