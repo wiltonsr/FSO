@@ -12,11 +12,11 @@ void print_30_bytes(char path[256], char word[256], const int max_words){
     if (!strstr(path, word)) return;
 
     FILE* sigD = fopen(path, "r");
-    char *sig[255];
-    fread(sig, 1, sizeof(sig), sigD);
+    char *sig[30];
+    fread(sig, 1, 30, sigD);
     count++;
     printf("%d. %s --\n", count, path);
-    printf("\t%s", sig);
+    printf("\t%s\n", sig);
 }
 
 navigate_dir(char path[], char word[256], const int max_words){
