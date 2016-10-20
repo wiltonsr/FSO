@@ -7,9 +7,9 @@
 
 int count = 0;
 
-void print_30_bytes(char path[256], const int max_words){
-    /* printf("%d\n", count); */
-    if(count == max_words) return;
+void print_30_bytes(char path[256], char word[256], const int max_words){
+    if (count == max_words) return;
+    if (!strstr(path, word)) return;
 
     FILE* sigD = fopen(path, "r");
     char *sig[255];
@@ -19,7 +19,7 @@ void print_30_bytes(char path[256], const int max_words){
     printf("\t%s", sig);
 }
 
-navigate_dir(char path[], const int max_words){
+navigate_dir(char path[], char word[256], const int max_words){
 
     DIR *d;
     struct dirent *dir;
@@ -37,10 +37,10 @@ navigate_dir(char path[], const int max_words){
 
 		    if(dir->d_type == 4){
 			strcat(dir_name, "/");
-			navigate_dir(dir_name, max_words);
+			navigate_dir(dir_name, word, max_words);
 		    }
 		    else{
-			print_30_bytes(dir_name, max_words);
+			print_30_bytes(dir_name, word, max_words);
 		    }
 		}
 	    }
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
     }
     const int max_words = atoi(argv[3]);
 
-    navigate_dir(argv[1], max_words);
+    navigate_dir(argv[1], argv[2], max_words);
 
     return 0;
 }
