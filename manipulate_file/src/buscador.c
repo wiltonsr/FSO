@@ -19,7 +19,7 @@ void print_30_bytes(char path[256], char word[256], const int max_words){
     printf("\t%s\n", sig);
 }
 
-navigate_dir(char path[], char word[256], const int max_words){
+void navigate_dir(char path[], char word[256], const int max_words){
 
     DIR *d;
     struct dirent *dir;
