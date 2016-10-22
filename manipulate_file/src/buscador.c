@@ -53,8 +53,8 @@ int main(int argc, char *argv[])
 {
 
     if(argc != 4){
-	printf("Use: ./buscador /path/to/want word_to_seek number_max\n");
-	exit(EXIT_FAILURE);
+      printf("Use: ./buscador /path/to/want word_to_seek number_max\n");
+      exit(EXIT_FAILURE);
     }
     const int max_words = atoi(argv[3]);
 
