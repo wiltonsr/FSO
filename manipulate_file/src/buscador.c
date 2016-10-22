@@ -4,7 +4,8 @@
 #include <string.h>
 #include <sys/types.h>
 #include <fcntl.h>
-
+#define DIR_TYPE 4
+#define EXPECTED_PARAMS 4
 int count = 0;
 
 void print_30_bytes(char path[256], char word[256], const int max_words){
@@ -35,7 +36,7 @@ void navigate_dir(char path[], char word[256], const int max_words){
       if(!(strcmp(dir->d_name, ".") == 0)){
         if(!(strcmp(dir->d_name, "..") == 0)){
 
-          if(dir->d_type == 4){
+          if(dir->d_type == DIR_TYPE){
             strcat(dir_name, "/");
             navigate_dir(dir_name, word, max_words);
           }
@@ -52,7 +53,7 @@ void navigate_dir(char path[], char word[256], const int max_words){
 int main(int argc, char *argv[])
 {
 
-  if(argc != 4){
+  if(argc != EXPECTED_PARAMS){
     printf("Use: ./buscador /path/to/want word_to_seek number_max\n");
     exit(EXIT_FAILURE);
   }
