@@ -2,11 +2,10 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <unistd.h>
-#include<pthread.h>
+#include <pthread.h>
 
 int TERMINATE_FLAG = 0;
 int const ASCII_START = 65;
-pthread_mutex_t lock;
 pthread_mutex_t lock;
 
 void set_end_flag(int sig){
@@ -20,8 +19,8 @@ struct info_thread_t{
 
 void *print_line(void *args){
   struct info_thread_t *info = (struct info_thread_t *) args;
-  pthread_mutex_lock(&lock);
   while(!TERMINATE_FLAG){
+    pthread_mutex_lock(&lock);
     for (int i = 0; i <= info->number; i++){
       printf("%c", ASCII_START + info->number);
     }
