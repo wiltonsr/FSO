@@ -4,9 +4,8 @@
 #include <unistd.h>
 #include<pthread.h>
 
-int PRINT_FLAG = 0;
 int TERMINATE_FLAG = 0;
-int const ASCII_START = 64;
+int const ASCII_START = 65;
 pthread_mutex_t lock;
 pthread_mutex_t lock;
 
@@ -23,13 +22,10 @@ void *print_line(void *args){
   struct info_thread_t *info = (struct info_thread_t *) args;
   pthread_mutex_lock(&lock);
   while(!TERMINATE_FLAG){
-    PRINT_FLAG = 1;
-    for (int i = 0; i < info->number; i++){
+    for (int i = 0; i <= info->number; i++){
       printf("%c", ASCII_START + info->number);
     }
     printf("\n");
-    fflush(stdout);
-    PRINT_FLAG = 0;
     pthread_mutex_unlock(&lock);
     info->qtd_lines++;
     sleep(0.5);
@@ -80,6 +76,8 @@ int main(int argc, char *argv[]){
     }
     return 0;
   }
+
   pthread_mutex_destroy(&lock);
-  return 1;
+
+  return EXIT_SUCCESS;
 }
