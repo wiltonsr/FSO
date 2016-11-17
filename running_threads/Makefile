@@ -26,7 +26,7 @@ LINK_FORCE = ln -fn
 # Compilator and flags
 #------------------------------------------------------------------------------
 CC = gcc
-CFLAGS = -std=c11 -ftrapv -Wextra -Wfloat-equal -Wundef -Winit-self -Wpointer-arith -Wpointer-arith -lpthread -g -O0
+CFLAGS = -std=gnu99 -ftrapv -Wextra -Wfloat-equal -Wundef -Winit-self -Wpointer-arith -Wpointer-arith -lpthread -g -O0
 
 #------------------------------------------------------------------------------
 # Executable's name

@@ -3,6 +3,7 @@
 #include <signal.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <time.h>
 
 int TERMINATE_FLAG = 0;
 int const ASCII_START = 65;
@@ -27,7 +28,7 @@ void *print_line(void *args){
     printf("\n");
     pthread_mutex_unlock(&lock);
     info->qtd_lines++;
-    sleep(0.5);
+    usleep(500000);
   }
 }
 
