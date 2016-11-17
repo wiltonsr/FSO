@@ -1,9 +1,10 @@
+#define _BSD_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
-#include <unistd.h>
-#include <pthread.h>
 #include <time.h>
+#include <pthread.h>
+#include <unistd.h>
 
 int TERMINATE_FLAG = 0;
 int const ASCII_START = 65;
