@@ -1,13 +1,12 @@
-#define _BSD_SOURCE
+#define _DEFAULT_SOURCE
+#define ASCII_START 65
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
-#include <time.h>
 #include <pthread.h>
 #include <unistd.h>
 
 int TERMINATE_FLAG = 0;
-int const ASCII_START = 65;
 pthread_mutex_t lock;
 
 void set_end_flag(int sig){
